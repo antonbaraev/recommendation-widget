@@ -1,0 +1,47 @@
+{
+  "name": "tbl-widget",
+  "version": "1.0.0",
+  "description": "Embeddable Taboola recommendation widget as a Shadow-DOM custom element",
+  "type": "module",
+  "main": "./dist/tbl-widget.iife.js",
+  "module": "./dist/tbl-widget.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/tbl-widget.es.js",
+      "require": "./dist/tbl-widget.iife.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "recommendation",
+    "widget",
+    "custom-element",
+    "shadow-dom",
+    "web-component",
+    "taboola",
+    "embeddable"
+  ],
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@vitest/ui": "^4.0.14",
+    "jsdom": "^27.2.0",
+    "prettier": "^3.7.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4",
+    "vitest": "^4.0.14"
+  }
+}

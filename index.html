@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taboola Widget Demo</title>
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+
+      .demo-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      .widget-section {
+        margin-top: 40px;
+      }
+
+      .controls {
+        margin-bottom: 20px;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 4px;
+      }
+
+      .controls h3 {
+        margin-top: 0;
+      }
+
+      .control-group {
+        margin-bottom: 15px;
+      }
+
+      .control-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .control-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      button:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-container">
+      <h1>Recommendation Widget Demo</h1>
+
+      <div class="widget-section">
+        <div class="controls">
+          <h3>Configuration</h3>
+          <div class="control-group">
+            <label for="source-id">Source ID:</label>
+            <input type="text" id="source-id" value="214321562187" />
+          </div>
+          <div class="control-group">
+            <label for="source-type">Source Type:</label>
+            <input type="text" id="source-type" value="video" />
+          </div>
+          <div class="control-group">
+            <label for="source-url">Source URL:</label>
+            <input
+              type="text"
+              id="source-url"
+              value="https://www.site.com/videos/214321562187.html"
+            />
+          </div>
+          <div class="control-group">
+            <label for="count">Count:</label>
+            <input type="number" id="count" value="6" min="1" max="20" />
+          </div>
+          <button id="reload-btn">Reload Widget</button>
+        </div>
+
+        <tbl-widget
+          source-id="214321562187"
+          source-type="video"
+          source-url="https://www.site.com/videos/214321562187.html"
+          count="6"
+        >
+        </tbl-widget>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+    <script type="module">
+      const widget = document.querySelector('tbl-widget');
+      const reloadBtn = document.getElementById('reload-btn');
+      const sourceIdInput = document.getElementById('source-id');
+      const sourceTypeInput = document.getElementById('source-type');
+      const sourceUrlInput = document.getElementById('source-url');
+      const countInput = document.getElementById('count');
+
+      reloadBtn.addEventListener('click', () => {
+        widget.setAttribute('source-id', sourceIdInput.value);
+        widget.setAttribute('source-type', sourceTypeInput.value);
+        widget.setAttribute('source-url', sourceUrlInput.value);
+        widget.setAttribute('count', countInput.value);
+      });
+
+      widget.addEventListener('tbl-loaded', (e) => {
+        console.log('Widget loaded with', e.detail.count, 'recommendations');
+      });
+
+      widget.addEventListener('tbl-error', (e) => {
+        console.error('Widget error:', e.detail.error);
+      });
+    </script>
+  </body>
+</html>

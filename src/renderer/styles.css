@@ -1,0 +1,134 @@
+:host {
+  display: block;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.tbl-widget-container {
+  width: 100%;
+  padding: 16px;
+}
+
+.tbl-widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tbl-widget-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.tbl-widget-branding {
+  display: flex;
+  align-items: center;
+}
+
+.tbl-widget-branding-text {
+  font-size: 12px;
+  color: #666;
+}
+
+.tbl-widget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .tbl-widget-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tbl-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+  background: white;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tbl-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tbl-item-thumbnail {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #f5f5f5;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tbl-item-content {
+  padding: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tbl-item-title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 8px 0;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tbl-item-branding {
+  font-size: 12px;
+  color: #666;
+  margin-top: auto;
+}
+
+.tbl-item-sponsored {
+  background: #fffbf0;
+}
+
+.tbl-widget-error {
+  padding: 16px;
+  color: #d32f2f;
+  background: #ffebee;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.tbl-widget-loading {
+  padding: 32px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+.tbl-widget-empty {
+  padding: 32px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
