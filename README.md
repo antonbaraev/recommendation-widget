@@ -1,4 +1,4 @@
-# Taboola Recommendation Widget
+# Recommendation Widget
 
 An embeddable recommendation widget built as a Shadow-DOM custom element using TypeScript and Vite. This widget can be safely embedded in any web application (React, Vue, Angular, plain JS) without style or DOM conflicts.
 

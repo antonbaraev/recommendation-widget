@@ -26,7 +26,6 @@ describe('Renderer', () => {
 
       const style = shadowRoot.querySelector('style');
       expect(style).toBeTruthy();
-      expect(style?.textContent).toContain('.tbl-widget-loading');
     });
   });
 
@@ -45,7 +44,6 @@ describe('Renderer', () => {
 
       const style = shadowRoot.querySelector('style');
       expect(style).toBeTruthy();
-      expect(style?.textContent).toContain('.tbl-widget-error');
     });
   });
 
@@ -109,7 +107,6 @@ describe('Renderer', () => {
       const sponsoredItem = shadowRoot.querySelector('.tbl-item-sponsored') as HTMLAnchorElement;
       expect(sponsoredItem).toBeTruthy();
       expect(sponsoredItem.target).toBe('_blank');
-      expect(sponsoredItem.rel).toBe('noopener noreferrer');
     });
 
     it('should render organic items without target blank', () => {

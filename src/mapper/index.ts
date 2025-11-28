@@ -22,7 +22,7 @@ export function mapRecommendationItem(apiItem: TRecommendationItem): TNormalized
     url: apiItem.url,
     thumbnailUrl: extractThumbnailUrl(apiItem),
     type,
-    branding: apiItem.branding
+    branding: type === 'sponsored' ? apiItem.branding : undefined
   };
 }
 

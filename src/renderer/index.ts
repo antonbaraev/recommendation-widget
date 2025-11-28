@@ -72,11 +72,11 @@ export class Renderer {
     link.className = `tbl-item ${isSponsored ? 'tbl-item-sponsored' : ''}`;
 
     if (item.thumbnailUrl) {
-      const thumbnail = document.createElement('div');
+      const thumbnail = document.createElement('img');
       thumbnail.className = 'tbl-item-thumbnail';
-      thumbnail.style.backgroundImage = `url("${item.thumbnailUrl}")`;
-      thumbnail.setAttribute('role', 'img');
-      thumbnail.setAttribute('aria-label', item.title);
+      thumbnail.src = item.thumbnailUrl;
+      thumbnail.alt = item.title;
+      thumbnail.loading = 'lazy';
       link.appendChild(thumbnail);
     }
 
