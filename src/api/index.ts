@@ -1,5 +1,5 @@
 import type { TApiRequestParams, TApiResponse } from './types';
-import { MOCKED_API_RESPONSE } from '../__mocks__/recommendations-response';
+// import { MOCKED_API_RESPONSE } from '../__mocks__/recommendations-response';
 
 const BASE_URL = 'https://api.taboola.com/1.0/json/taboola-templates/recommendations.get';
 
@@ -31,9 +31,8 @@ export class ApiClient {
         );
       }
 
-      // const data = await response.json();
-      const data = MOCKED_API_RESPONSE;
-      console.log('@@@@ data', data);
+      const data = await response.json();
+      // const data = MOCKED_API_RESPONSE;
 
       if (!data || !Array.isArray(data.list)) {
         throw new Error('Invalid API response: missing or invalid "list" field');

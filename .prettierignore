@@ -1,22 +1,3 @@
-# Dependencies
 node_modules
-
-# Build output
 dist
-dist-ssr
-
-# Coverage
-coverage
-.nyc_output
-
-# Lock files
 package-lock.json
-pnpm-lock.yaml
-yarn.lock
-
-# Logs
-*.log
-
-# OS files
-.DS_Store
-Thumbs.db
