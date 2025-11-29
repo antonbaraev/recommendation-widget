@@ -32,4 +32,9 @@ export type TRecommendationItem = {
   created: string;
 };
 
-export type TRecommendationType = 'sponsored' | 'organic';
+export const RecommendationType = {
+  Sponsored: 'sponsored',
+  Organic: 'organic'
+} as const;
+
+export type TRecommendationType = typeof RecommendationType[keyof typeof RecommendationType];

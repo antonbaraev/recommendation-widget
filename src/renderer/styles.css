@@ -20,7 +20,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+}
+
+.tbl-widget-separator {
+  height: 2px;
+  background: #333;
+  margin-bottom: 20px;
 }
 
 .tbl-widget-title {

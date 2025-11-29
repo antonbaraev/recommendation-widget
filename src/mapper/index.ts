@@ -1,5 +1,6 @@
 import type { TNormalizedItem } from './types';
 import type { TRecommendationItem, TApiResponse, TRecommendationType } from '../api/types';
+import { RecommendationType } from '../api/types';
 
 function mapRecommendationType(origin: TRecommendationType): TRecommendationType {
   return origin;
@@ -22,7 +23,7 @@ export function mapRecommendationItem(apiItem: TRecommendationItem): TNormalized
     url: apiItem.url,
     thumbnailUrl: extractThumbnailUrl(apiItem),
     type,
-    branding: type === 'sponsored' ? apiItem.branding : undefined
+    branding: type === RecommendationType.Sponsored ? apiItem.branding : undefined
   };
 }
 
