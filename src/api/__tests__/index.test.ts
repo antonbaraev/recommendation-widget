@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { ApiClient, createApiClient } from '.';
-import type { TApiRequestParams } from './types';
+import { ApiClient, createApiClient } from '..';
+import type { TApiRequestParams } from '..';
 
 describe('ApiClient', () => {
   let apiClient: ApiClient;

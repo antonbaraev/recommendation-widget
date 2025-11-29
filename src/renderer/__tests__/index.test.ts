@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { Renderer } from '.';
-import type { TNormalizedItem } from '../mapper/types';
+import { Renderer } from '..';
+import type { TNormalizedItem } from '../../mapper';
 
 describe('Renderer', () => {
   let shadowRoot: ShadowRoot;

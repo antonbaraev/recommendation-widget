@@ -1,5 +1,5 @@
-import type { TNormalizedItem } from '../../mapper/types';
-import { RecommendationType } from '../../api/types';
+import type { TNormalizedItem } from '../../mapper';
+import { RecommendationType } from '../../api';
 
 export abstract class BaseItemRenderer {
   abstract render(item: TNormalizedItem): HTMLElement;

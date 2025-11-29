@@ -1,6 +1,6 @@
 import { BaseItemRenderer } from './BaseItemRenderer';
-import type { TNormalizedItem } from '../../mapper/types';
-import { h } from '../../utils/dom';
+import type { TNormalizedItem } from '../../mapper';
+import { h } from '../../utils';
 
 export class OrganicItemRenderer extends BaseItemRenderer {
   render(item: TNormalizedItem): HTMLElement {

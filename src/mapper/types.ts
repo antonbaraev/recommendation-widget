@@ -1,4 +1,4 @@
-import type { TRecommendationType } from '../api/types';
+import type { TRecommendationType } from '../api';
 
 export type TNormalizedItem = {
   id: string;

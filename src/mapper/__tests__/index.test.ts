@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { mapRecommendationItem, mapApiResponse } from '.';
-import type { TRecommendationItem, TApiResponse } from '../api/types';
+import { mapRecommendationItem, mapApiResponse } from '..';
+import type { TRecommendationItem, TApiResponse } from '../../api';
 
 describe('mapRecommendationItem', () => {
   it('should map sponsored item correctly', () => {

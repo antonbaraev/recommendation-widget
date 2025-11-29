@@ -5,6 +5,6 @@ if (!customElements.get('tbl-widget')) {
 }
 
 export { TblWidget };
-export type { TWidgetConfig } from './widget/types';
-export type { TNormalizedItem } from './mapper/types';
-export type { TRecommendationType } from './api/types';
+export type { TWidgetConfig } from './widget';
+export type { TNormalizedItem } from './mapper';
+export type { TRecommendationType } from './api';

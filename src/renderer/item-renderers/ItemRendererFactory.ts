@@ -1,7 +1,7 @@
 import { BaseItemRenderer } from './BaseItemRenderer';
 import { SponsoredItemRenderer } from './SponsoredItemRenderer';
 import { OrganicItemRenderer } from './OrganicItemRenderer';
-import type { TRecommendationType } from '../../api/types';
+import type { TRecommendationType } from '../../api';
 
 const DEFAULT_RENDERERS: Record<TRecommendationType, BaseItemRenderer> = {
   sponsored: new SponsoredItemRenderer(),
