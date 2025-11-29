@@ -279,8 +279,6 @@ The widget uses modern web standards:
 
 The widget uses Shadow DOM for complete style encapsulation. Host page styles do not affect the widget, and widget styles do not leak to the host page.
 
-To customize the widget appearance, you would need to modify the styles in [src/renderer/styles.ts](src/renderer/styles.ts) before building.
-
 ## Code Formatting
 
 This project uses [Prettier](https://prettier.io/) for code formatting with the following configuration:
