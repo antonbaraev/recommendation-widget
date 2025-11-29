@@ -7,7 +7,6 @@ An embeddable recommendation widget built as a Shadow-DOM custom element using T
 - **Shadow DOM Encapsulation**: Complete isolation from host page styles and DOM
 - **Dual Bundle Format**: Available as ESM module and IIFE script
 - **Responsive**: Mobile and desktop optimized layouts
-- **Lazy Loading**: Images load on demand for better performance
 - **Event-Driven**: Custom events for load success and errors
 - **Dynamic Updates**: Automatically reloads when attributes change
 
