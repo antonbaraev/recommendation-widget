@@ -5,7 +5,6 @@ export function h<K extends keyof HTMLElementTagNameMap>(
     attrs?: Record<string, string>;
     props?: Partial<HTMLElementTagNameMap[K]>;
     children?: Array<Node | string | null | undefined>;
-    on?: Record<string, EventListenerOrEventListenerObject>;
   }
 ): HTMLElementTagNameMap[K] {
   const el = document.createElement(tag) as HTMLElementTagNameMap[K];
@@ -30,12 +29,6 @@ export function h<K extends keyof HTMLElementTagNameMap>(
       } else {
         el.appendChild(c);
       }
-    }
-  }
-
-  if (options?.on) {
-    for (const [evt, handler] of Object.entries(options.on)) {
-      el.addEventListener(evt, handler);
     }
   }
 
