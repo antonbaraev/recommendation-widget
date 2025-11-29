@@ -1,4 +1,5 @@
 import type { TApiRequestParams, TApiResponse } from './types';
+// TODO: remove this line when not needed for testing
 // import { MOCKED_API_RESPONSE } from '../__mocks__/recommendations-response';
 
 const BASE_URL = 'https://api.taboola.com/1.0/json/taboola-templates/recommendations.get';
@@ -32,6 +33,7 @@ export class ApiClient {
       }
 
       const data = await response.json();
+      // TODO: remove this line when not needed for testing
       // const data = MOCKED_API_RESPONSE;
 
       if (!data || !Array.isArray(data.list)) {

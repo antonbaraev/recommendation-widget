@@ -5,10 +5,7 @@ An embeddable recommendation widget built as a Shadow-DOM custom element using T
 ## Features
 
 - **Shadow DOM Encapsulation**: Complete isolation from host page styles and DOM
-- **Framework Agnostic**: Works with React, Vue, Angular, or plain JavaScript
-- **SSR Compatible**: Safe to use with Next.js, Remix, Nuxt, and other SSR frameworks
 - **Dual Bundle Format**: Available as ESM module and IIFE script
-- **TypeScript**: Fully typed with comprehensive type definitions
 - **Responsive**: Mobile and desktop optimized layouts
 - **Lazy Loading**: Images load on demand for better performance
 - **Event-Driven**: Custom events for load success and errors
@@ -159,125 +156,6 @@ The widget supports different types of recommendations:
 - No branding displayed
 - Standard styling
 
-### Video
-
-- Extensible architecture for video-specific features
-- Same behavior as organic recommendations
-
-## Framework Integration
-
-### React
-
-```jsx
-import React, { useEffect, useRef } from 'react';
-import 'tbl-widget';
-
-function RecommendationWidget({ sourceId, sourceType, sourceUrl, count }) {
-  const widgetRef = useRef(null);
-
-  useEffect(() => {
-    const widget = widgetRef.current;
-
-    const handleLoad = (e) => {
-      console.log('Loaded:', e.detail.count);
-    };
-
-    const handleError = (e) => {
-      console.error('Error:', e.detail.error);
-    };
-
-    widget?.addEventListener('tbl-loaded', handleLoad);
-    widget?.addEventListener('tbl-error', handleError);
-
-    return () => {
-      widget?.removeEventListener('tbl-loaded', handleLoad);
-      widget?.removeEventListener('tbl-error', handleError);
-    };
-  }, []);
-
-  return (
-    <tbl-widget
-      ref={widgetRef}
-      source-id={sourceId}
-      source-type={sourceType}
-      source-url={sourceUrl}
-      count={count}
-    />
-  );
-}
-```
-
-### Vue 3
-
-```vue
-<template>
-  <tbl-widget
-    :source-id="sourceId"
-    :source-type="sourceType"
-    :source-url="sourceUrl"
-    :count="count"
-    @tbl-loaded="handleLoad"
-    @tbl-error="handleError"
-  />
-</template>
-
-<script setup>
-import 'tbl-widget';
-
-const props = defineProps({
-  sourceId: String,
-  sourceType: String,
-  sourceUrl: String,
-  count: Number
-});
-
-const handleLoad = (e) => {
-  console.log('Loaded:', e.detail.count);
-};
-
-const handleError = (e) => {
-  console.error('Error:', e.detail.error);
-};
-</script>
-```
-
-### Angular
-
-```typescript
-import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import 'tbl-widget';
-
-@Component({
-  selector: 'app-recommendations',
-  template: `
-    <tbl-widget
-      [attr.source-id]="sourceId"
-      [attr.source-type]="sourceType"
-      [attr.source-url]="sourceUrl"
-      [attr.count]="count"
-      (tbl-loaded)="handleLoad($event)"
-      (tbl-error)="handleError($event)"
-    >
-    </tbl-widget>
-  `,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
-})
-export class RecommendationsComponent {
-  sourceId = '214321562187';
-  sourceType = 'video';
-  sourceUrl = 'https://www.site.com/videos/214321562187.html';
-  count = 6;
-
-  handleLoad(event: any) {
-    console.log('Loaded:', event.detail.count);
-  }
-
-  handleError(event: any) {
-    console.error('Error:', event.detail.error);
-  }
-}
-```
-
 ## Development
 
 ### Prerequisites
@@ -311,37 +189,6 @@ npm run format
 
 # Check code formatting
 npm run format:check
-```
-
-### Project Structure
-
-```
-recommendation-widget/
-├── src/
-│   ├── api/                    # API integration
-│   │   ├── index.ts            # API client implementation
-│   │   └── index.test.ts       # API client tests
-│   ├── mapper/                 # Data mapping
-│   │   ├── index.ts            # Data mapper (API → internal model)
-│   │   └── index.test.ts       # Mapper tests
-│   ├── renderer/               # Shadow DOM rendering
-│   │   ├── index.ts            # Renderer implementation
-│   │   ├── index.test.ts       # Renderer tests
-│   │   └── styles.ts           # Widget styles (CSS-in-JS)
-│   ├── types/                  # TypeScript type definitions
-│   │   └── index.ts            # All type definitions
-│   ├── widget/                 # Custom element
-│   │   └── index.ts            # Widget implementation
-│   └── main.ts                 # Entry point & registration
-├── dist/                       # Build output
-│   ├── tbl-widget.es.js        # ESM bundle
-│   └── tbl-widget.iife.js      # IIFE bundle
-├── .prettierrc                 # Prettier configuration
-├── .vscode/                    # VS Code settings
-├── index.html                  # Demo page
-├── vite.config.ts              # Vite configuration
-├── vitest.config.ts            # Vitest configuration
-└── README.md                   # Documentation
 ```
 
 ### Building
@@ -436,10 +283,6 @@ The widget uses Shadow DOM for complete style encapsulation. Host page styles do
 
 To customize the widget appearance, you would need to modify the styles in [src/renderer/styles.ts](src/renderer/styles.ts) before building.
 
-## License
-
-MIT
-
 ## Code Formatting
 
 This project uses [Prettier](https://prettier.io/) for code formatting with the following configuration:
@@ -462,25 +305,45 @@ npm run format:check
 
 The Prettier configuration is in [.prettierrc](.prettierrc).
 
-## Contributing
+## Example Framework Integration
 
-Contributions are welcome! Please follow these steps:
+### React
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass (`npm test`)
-6. Format your code (`npm run format`)
-7. Submit a pull request
+```jsx
+import React, { useEffect, useRef } from 'react';
+import 'tbl-widget';
 
-**Code style guidelines:**
+function RecommendationWidget({ sourceId, sourceType, sourceUrl, count }) {
+  const widgetRef = useRef(null);
 
-- All code must pass Prettier formatting checks
-- Follow the existing TypeScript patterns
-- Add JSDoc comments for public APIs
-- Write unit tests for new functionality
+  useEffect(() => {
+    const widget = widgetRef.current;
 
-## Support
+    const handleLoad = (e) => {
+      console.log('Loaded:', e.detail.count);
+    };
 
-For issues, questions, or feature requests, please open an issue on GitHub.
+    const handleError = (e) => {
+      console.error('Error:', e.detail.error);
+    };
+
+    widget?.addEventListener('tbl-loaded', handleLoad);
+    widget?.addEventListener('tbl-error', handleError);
+
+    return () => {
+      widget?.removeEventListener('tbl-loaded', handleLoad);
+      widget?.removeEventListener('tbl-error', handleError);
+    };
+  }, []);
+
+  return (
+    <tbl-widget
+      ref={widgetRef}
+      source-id={sourceId}
+      source-type={sourceType}
+      source-url={sourceUrl}
+      count={count}
+    />
+  );
+}
+```
