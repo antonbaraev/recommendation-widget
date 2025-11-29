@@ -1,3 +1,5 @@
+import type { ValueOf } from '../utils';
+
 export type TApiRequestParams = {
   publisher: string;
   'app.type': string;
@@ -37,4 +39,4 @@ export const RecommendationType = {
   Organic: 'organic'
 } as const;
 
-export type TRecommendationType = typeof RecommendationType[keyof typeof RecommendationType];
+export type TRecommendationType = ValueOf<typeof RecommendationType>;
