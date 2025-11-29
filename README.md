@@ -27,8 +27,6 @@ npm install tbl-widget
 
 ## Usage
 
-### ESM Import (React, Vue, Angular, etc.)
-
 ```javascript
 // Import the widget
 import 'tbl-widget';
